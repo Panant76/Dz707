@@ -1,9 +1,10 @@
-package Enum;
+package Enumic;
 
-public enum Button {
-    IN_LIST,
-    OUT_LIST,
-    SHOW_LIST,
-    CHECK_VALUE,
-    CHANGE_VALUE;
+public enum Buttone {
+    EXIT,
+    ADD,
+    REMOVE,
+    PRINT,
+    CONTAINS,
+    REPLACE;
 }
