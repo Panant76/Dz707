@@ -21,9 +21,10 @@ public class IntCont {
     private int toInt(String str) {
         return Integer.parseInt(str);
     }
-    public void addAll(String str){
-        String [] arr=str.split(",");
-        List arList= Arrays.asList(arr);
+
+    public void addAll(String str) {
+        String[] arr = str.split(",");
+        List arList = Arrays.asList(arr);
         list.addAll(arList);
         ioService.write(String.valueOf(list));
     }
@@ -43,17 +44,18 @@ public class IntCont {
     }
 
     public void contains(String str) {
-        if( list.contains(str)){
-            ioService.write("Число "+str+" найдено");
-        }else{
-            ioService.write("Число "+str+" не найдено");
+        if (list.contains(str)) {// работает только как str, как toInt(str) - не работает
+            ioService.write("Число " + str + " найдено");
+        } else {
+            ioService.write("Число " + str + " не найдено");
         }
     }
-    public void replace(String str){
-        String[]arr=str.split(",");
-        int indxA=toInt(arr[0]);
-        int indxB=toInt(arr[1]);
-        list.set(indxA,indxB);
+
+    public void replace(String str) {
+        String[] arr = str.split(",");
+        int indxA = toInt(arr[0]);
+        int indxB = toInt(arr[1]);
+        list.set(indxA, indxB);
     }
 
 }
