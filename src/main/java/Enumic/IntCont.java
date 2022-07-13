@@ -3,7 +3,10 @@ package Enumic;
 import Services.IOService;
 import Services.IOServiceImpl;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class IntCont {
@@ -18,8 +21,15 @@ public class IntCont {
     private int toInt(String str) {
         return Integer.parseInt(str);
     }
+    public void addAll(String str){
+        String [] arr=str.split(",");
+        List arList= Arrays.asList(arr);
+        list.addAll(arList);
+        ioService.write(String.valueOf(list));
+    }
 
     public void add(String str) {
+        ioService.write("ВВедите число");
         list.add(toInt(str));
         ioService.write(String.valueOf(list));
     }
@@ -32,8 +42,12 @@ public class IntCont {
         ioService.write(String.valueOf(list));
     }
 
-    public int contains(String str) {
-        return list.indexOf(toInt(str));
+    public void contains(String str) {
+        if( list.contains(str)){
+            ioService.write("Число "+str+" найдено");
+        }else{
+            ioService.write("Число "+str+" не найдено");
+        }
     }
     public void replace(String str){
         String[]arr=str.split(",");

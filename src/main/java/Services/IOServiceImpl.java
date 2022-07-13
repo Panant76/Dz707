@@ -1,5 +1,7 @@
 package Services;
 
+import Enumic.Buttone;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,10 +14,10 @@ public class IOServiceImpl implements IOService {
     }
 
     @Override
-    public int read() {
+    public Buttone read() {
         try {
             String str = reader.readLine();
-            return Integer.parseInt(str);
+            return Buttone.values()[Integer.parseInt(str)];
         } catch (IOException | ArrayIndexOutOfBoundsException e) {
             write("Произошла ошибка, повторите ввод");
             return read();

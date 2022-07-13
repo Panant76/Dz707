@@ -6,7 +6,6 @@ import Services.IOService;
 import Services.IOServiceImpl;
 
 
-
 public class Pm {
     private IOService ioService;
     private IntCont intCont;
@@ -15,9 +14,11 @@ public class Pm {
         this.ioService = new IOServiceImpl();
         this.intCont = new IntCont();
     }
-    public void start(){
-        ioService.write("ВВедите набор чисел");
+
+    public void start() {
+        ioService.write("Введите набор чисел");
         String str = ioService.readStr();
+        intCont.addAll(str);
         run();
     }
 
@@ -35,28 +36,30 @@ public class Pm {
     }
 
     private void operation() {
-        int operation = ioService.read();
+        Buttone operation = ioService.read();
         String str = ioService.readStr();
         switch (operation) {
-            case 0:
+            case EXIT:
                 break;
-            case 1:
+            case ADD:
                 intCont.add(str);
                 run();
                 break;
-            case 2:
+            case REMOVE:
                 intCont.remove(str);
                 run();
                 break;
-            case 3:
+            case PRINT:
                 intCont.print();
                 run();
                 break;
-            case 4:
-                intCont.contains(str);run();
+            case CONTAINS:
+                intCont.contains(str);
+                run();
                 break;
-            case 5:
+            case REPLACE:
                 intCont.replace(str);
+                run();
                 break;
             default:
                 ioService.write("Не известная операция");
